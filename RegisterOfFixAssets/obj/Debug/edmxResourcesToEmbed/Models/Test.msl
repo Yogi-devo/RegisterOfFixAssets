@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="testmodelStoreContainer" CdmEntityContainer="Test">
+    <EntitySetMapping Name="dynamicrows">
+      <EntityTypeMapping TypeName="testmodel.dynamicrow">
+        <MappingFragment StoreEntitySet="dynamicrows">
+          <ScalarProperty Name="tablevalue" ColumnName="tablevalue" />
+          <ScalarProperty Name="count" ColumnName="count" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

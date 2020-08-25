@@ -1,0 +1,137 @@
+﻿@model IEnumerable<RegisterOfFixAssets.Models.Detail_Master>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<div style="margin-top:30px">
+    <table class="table table-striped table-bordered" id="print" style="width:100%">
+        <thead>
+            <tr>
+               
+                <th>
+                    @Html.DisplayName("Item Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Model & Serial No")
+                </th>
+              
+                <th>
+                    @Html.DisplayName("Supplier Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Bill No")
+                </th>
+                <th>
+                    @Html.DisplayName("Bill Date")
+                </th>
+
+                <th>
+                    @Html.DisplayName("Cost")
+                </th>
+                <th>
+                    @Html.DisplayName("File No")
+                </th>
+                <th>
+                    @Html.DisplayName("Room No")
+                </th>
+                <th>
+                    @Html.DisplayName("User Name")
+                </th>
+                 <th>
+                    @Html.DisplayNameFor(model => model.Remarks)
+                </th>
+                <th>
+                    @Html.Display("Action Taken")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AssetsP.item_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Model_SlNo)
+                    </td>
+
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SuppllierP.Supplier_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Bill_No)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Bill_Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cost)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.File_No)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoomNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User_Name)
+                    </td>
+                  
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Remarks)
+                    </td>
+                    <td>@if (item.Flag == 1)
+                    {
+                         <label>Already Transfered Once</label>
+                    }
+                    else
+                    {
+
+
+                        @Html.ActionLink("Edit", "Edit", new { id = item.D_ID }) 
+                    }
+                        @*@Html.ActionLink("Details", "Details", new { id = item.D_ID }) |*@
+                        @*@Html.ActionLink("Delete", "Delete", new { id = item.D_ID })*@
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css" />
+@section scripts{
+    @Scripts.Render("~/bundles/jquery")
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
+    @*<script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>*@
+    <script>
+
+        $(document).ready(function () {
+            $('#print').DataTable({
+                dom: 'Bfrtip',
+                buttons: [{
+                    extend: 'print',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 6],
+                    }
+                }]
+
+            });
+        });
+    </script>
+}
+

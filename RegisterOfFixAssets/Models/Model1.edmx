@@ -1,0 +1,488 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MasterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AssetsP">
+          <Key>
+            <PropertyRef Name="item_ID" />
+          </Key>
+          <Property Name="item_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="item_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="category" Type="int" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="AssetTransaction">
+          <Key>
+            <PropertyRef Name="TransacId" />
+          </Key>
+          <Property Name="TransacId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="D_ID" Type="int" Nullable="false" />
+          <Property Name="Item_Id" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Roomno" Type="varchar" MaxLength="50" />
+          <Property Name="Date_Modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CategoryMaster">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Detail_Master">
+          <Key>
+            <PropertyRef Name="D_ID" />
+          </Key>
+          <Property Name="D_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="item_ID" Type="int" />
+          <Property Name="Supplier_ID" Type="int" />
+          <Property Name="Bill_No" Type="varchar" MaxLength="50" />
+          <Property Name="Bill_Date" Type="date" />
+          <Property Name="Cost" Type="varchar" MaxLength="100" />
+          <Property Name="RoomNo" Type="varchar" MaxLength="30" />
+          <Property Name="User_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Item_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Model&amp;SlNo" Type="varchar" MaxLength="50" />
+          <Property Name="File_No" Type="varchar" MaxLength="50" />
+          <Property Name="Category" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Remarks" Type="varchar" MaxLength="50" />
+          <Property Name="SupplierName" Type="varchar" MaxLength="250" />
+          <Property Name="Flag" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Register_Of_Fixed_Assets.dbo.History_Master' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="History_Master">
+          <Key>
+            <PropertyRef Name="h_id" />
+          </Key>
+          <Property Name="h_id" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Register_Of_Fixed_Assets.dbo.Login' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="LoginId" />
+            <PropertyRef Name="Password" />
+          </Key>
+          <Property Name="LoginId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="SuppllierP">
+          <Key>
+            <PropertyRef Name="Supplier_ID" />
+          </Key>
+          <Property Name="Supplier_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Supplier_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="UserMaster">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="200" />
+          <Property Name="Designation" Type="varchar" MaxLength="200" />
+          <Property Name="RoomNo" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <Association Name="FK__Detail_Ma__item___71D1E811">
+          <End Role="AssetsP" Type="Self.AssetsP" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Detail_Master" Type="Self.Detail_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssetsP">
+              <PropertyRef Name="item_ID" />
+            </Principal>
+            <Dependent Role="Detail_Master">
+              <PropertyRef Name="item_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Detail_Ma__Suppl__01142BA1">
+          <End Role="SuppllierP" Type="Self.SuppllierP" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Detail_Master" Type="Self.Detail_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SuppllierP">
+              <PropertyRef Name="Supplier_ID" />
+            </Principal>
+            <Dependent Role="Detail_Master">
+              <PropertyRef Name="Supplier_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssetsP_CategoryMaster">
+          <End Role="CategoryMaster" Type="Self.CategoryMaster" Multiplicity="0..1" />
+          <End Role="AssetsP" Type="Self.AssetsP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryMaster">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="AssetsP">
+              <PropertyRef Name="category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssetTransaction_Detail_Master">
+          <End Role="Detail_Master" Type="Self.Detail_Master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AssetTransaction" Type="Self.AssetTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detail_Master">
+              <PropertyRef Name="D_ID" />
+            </Principal>
+            <Dependent Role="AssetTransaction">
+              <PropertyRef Name="D_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MasterModelStoreContainer">
+          <EntitySet Name="AssetsP" EntityType="Self.AssetsP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AssetTransaction" EntityType="Self.AssetTransaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryMaster" EntityType="Self.CategoryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Detail_Master" EntityType="Self.Detail_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuppllierP" EntityType="Self.SuppllierP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserMaster" EntityType="Self.UserMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="History_Master" EntityType="Self.History_Master" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [History_Master].[h_id] AS [h_id]
+    FROM [dbo].[History_Master] AS [History_Master]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Login" EntityType="Self.Login" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Login].[LoginId] AS [LoginId], 
+    [Login].[Password] AS [Password], 
+    [Login].[Status] AS [Status]
+    FROM [dbo].[Login] AS [Login]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Detail_Ma__item___71D1E811" Association="Self.FK__Detail_Ma__item___71D1E811">
+            <End Role="AssetsP" EntitySet="AssetsP" />
+            <End Role="Detail_Master" EntitySet="Detail_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Detail_Ma__Suppl__01142BA1" Association="Self.FK__Detail_Ma__Suppl__01142BA1">
+            <End Role="SuppllierP" EntitySet="SuppllierP" />
+            <End Role="Detail_Master" EntitySet="Detail_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssetsP_CategoryMaster" Association="Self.FK_AssetsP_CategoryMaster">
+            <End Role="CategoryMaster" EntitySet="CategoryMaster" />
+            <End Role="AssetsP" EntitySet="AssetsP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssetTransaction_Detail_Master" Association="Self.FK_AssetTransaction_Detail_Master">
+            <End Role="Detail_Master" EntitySet="Detail_Master" />
+            <End Role="AssetTransaction" EntitySet="AssetTransaction" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MasterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AssetsP">
+          <Key>
+            <PropertyRef Name="item_ID" />
+          </Key>
+          <Property Name="item_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="item_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="category" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+          <NavigationProperty Name="Detail_Master" Relationship="MasterModel.FK__Detail_Ma__item___71D1E811" FromRole="AssetsP" ToRole="Detail_Master" />
+          <NavigationProperty Name="AssetTransactions" Relationship="MasterModel.FK_AssetTransaction_Detail_Master" FromRole="AssetsP" ToRole="AssetTransaction" />
+          <NavigationProperty Name="CategoryMaster" Relationship="MasterModel.FK_AssetsP_CategoryMaster" FromRole="AssetsP" ToRole="CategoryMaster" />
+        </EntityType>
+        <EntityType Name="CategoryMaster">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AssetsPs" Relationship="MasterModel.FK_AssetsP_CategoryMaster" FromRole="CategoryMaster" ToRole="AssetsP" />
+        </EntityType>
+        <EntityType Name="Detail_Master">
+          <Key>
+            <PropertyRef Name="D_ID" />
+          </Key>
+          <Property Name="D_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="item_ID" Type="Int32" />
+          <Property Name="Supplier_ID" Type="Int32" />
+          <Property Name="Bill_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Bill_Date" Type="DateTime" Precision="0" />
+          <Property Name="Cost" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RoomNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="User_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Item_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model_SlNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="File_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AssetsP" Relationship="MasterModel.FK__Detail_Ma__item___71D1E811" FromRole="Detail_Master" ToRole="AssetsP" />
+          <NavigationProperty Name="SuppllierP" Relationship="MasterModel.FK__Detail_Ma__Suppl__01142BA1" FromRole="Detail_Master" ToRole="SuppllierP" />
+          <NavigationProperty Name="AssetTransactions" Relationship="MasterModel.FK_AssetTransaction_Detail_Master1" FromRole="Detail_Master" ToRole="AssetTransaction" />
+          <Property Name="Flag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SuppllierP">
+          <Key>
+            <PropertyRef Name="Supplier_ID" />
+          </Key>
+          <Property Name="Supplier_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Supplier_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <NavigationProperty Name="Detail_Master" Relationship="MasterModel.FK__Detail_Ma__Suppl__01142BA1" FromRole="SuppllierP" ToRole="Detail_Master" />
+        </EntityType>
+        <EntityType Name="History_Master">
+          <Key>
+            <PropertyRef Name="h_id" />
+          </Key>
+          <Property Name="h_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="EntityConfig" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AssetsPs" EntityType="Self.AssetsP" />
+          <EntitySet Name="CategoryMasters" EntityType="Self.CategoryMaster" />
+          <EntitySet Name="Detail_Master" EntityType="Self.Detail_Master" />
+          <EntitySet Name="SuppllierPs" EntityType="Self.SuppllierP" />
+          <EntitySet Name="History_Master" EntityType="Self.History_Master" />
+          <AssociationSet Name="FK__Detail_Ma__item___71D1E811" Association="MasterModel.FK__Detail_Ma__item___71D1E811">
+            <End Role="AssetsP" EntitySet="AssetsPs" />
+            <End Role="Detail_Master" EntitySet="Detail_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Detail_Ma__Suppl__01142BA1" Association="MasterModel.FK__Detail_Ma__Suppl__01142BA1">
+            <End Role="SuppllierP" EntitySet="SuppllierPs" />
+            <End Role="Detail_Master" EntitySet="Detail_Master" />
+          </AssociationSet>
+          <EntitySet Name="AssetTransactions" EntityType="MasterModel.AssetTransaction" />
+          <AssociationSet Name="FK_AssetTransaction_Detail_Master" Association="MasterModel.FK_AssetTransaction_Detail_Master">
+            <End Role="AssetsP" EntitySet="AssetsPs" />
+            <End Role="AssetTransaction" EntitySet="AssetTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssetTransaction_Detail_Master1" Association="MasterModel.FK_AssetTransaction_Detail_Master1">
+            <End Role="Detail_Master" EntitySet="Detail_Master" />
+            <End Role="AssetTransaction" EntitySet="AssetTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssetsP_CategoryMaster" Association="MasterModel.FK_AssetsP_CategoryMaster">
+            <End Role="CategoryMaster" EntitySet="CategoryMasters" />
+            <End Role="AssetsP" EntitySet="AssetsPs" />
+          </AssociationSet>
+          <EntitySet Name="UserMasters" EntityType="MasterModel.UserMaster" />
+          <EntitySet Name="Logins" EntityType="MasterModel.Login" />
+        </EntityContainer>
+        <Association Name="FK__Detail_Ma__item___71D1E811">
+          <End Type="MasterModel.AssetsP" Role="AssetsP" Multiplicity="0..1" />
+          <End Type="MasterModel.Detail_Master" Role="Detail_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssetsP">
+              <PropertyRef Name="item_ID" />
+            </Principal>
+            <Dependent Role="Detail_Master">
+              <PropertyRef Name="item_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Detail_Ma__Suppl__01142BA1">
+          <End Type="MasterModel.SuppllierP" Role="SuppllierP" Multiplicity="0..1" />
+          <End Type="MasterModel.Detail_Master" Role="Detail_Master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SuppllierP">
+              <PropertyRef Name="Supplier_ID" />
+            </Principal>
+            <Dependent Role="Detail_Master">
+              <PropertyRef Name="Supplier_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AssetTransaction">
+          <Key>
+            <PropertyRef Name="TransacId" />
+          </Key>
+          <Property Name="TransacId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="D_ID" Type="Int32" Nullable="false" />
+          <Property Name="Item_Id" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Roomno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Modified" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AssetsP" Relationship="MasterModel.FK_AssetTransaction_Detail_Master" FromRole="AssetTransaction" ToRole="AssetsP" />
+          <NavigationProperty Name="Detail_Master" Relationship="MasterModel.FK_AssetTransaction_Detail_Master1" FromRole="AssetTransaction" ToRole="Detail_Master" />
+        </EntityType>
+        <Association Name="FK_AssetTransaction_Detail_Master">
+          <End Type="MasterModel.AssetsP" Role="AssetsP" Multiplicity="1" />
+          <End Type="MasterModel.AssetTransaction" Role="AssetTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssetsP">
+              <PropertyRef Name="item_ID" />
+            </Principal>
+            <Dependent Role="AssetTransaction">
+              <PropertyRef Name="Item_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssetTransaction_Detail_Master1">
+          <End Type="MasterModel.Detail_Master" Role="Detail_Master" Multiplicity="1" />
+          <End Type="MasterModel.AssetTransaction" Role="AssetTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detail_Master">
+              <PropertyRef Name="D_ID" />
+            </Principal>
+            <Dependent Role="AssetTransaction">
+              <PropertyRef Name="D_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssetsP_CategoryMaster">
+          <End Type="MasterModel.CategoryMaster" Role="CategoryMaster" Multiplicity="0..1" />
+          <End Type="MasterModel.AssetsP" Role="AssetsP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryMaster">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="AssetsP">
+              <PropertyRef Name="category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserMaster">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Designation" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="RoomNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="LoginId" />
+            <PropertyRef Name="Password" />
+          </Key>
+          <Property Name="LoginId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MasterModelStoreContainer" CdmEntityContainer="EntityConfig">
+          <EntitySetMapping Name="AssetsPs">
+            <EntityTypeMapping TypeName="MasterModel.AssetsP">
+              <MappingFragment StoreEntitySet="AssetsP">
+                <ScalarProperty Name="item_ID" ColumnName="item_ID" />
+                <ScalarProperty Name="item_name" ColumnName="item_name" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryMasters">
+            <EntityTypeMapping TypeName="MasterModel.CategoryMaster">
+              <MappingFragment StoreEntitySet="CategoryMaster">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detail_Master">
+            <EntityTypeMapping TypeName="MasterModel.Detail_Master">
+              <MappingFragment StoreEntitySet="Detail_Master">
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="D_ID" ColumnName="D_ID" />
+                <ScalarProperty Name="item_ID" ColumnName="item_ID" />
+                <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+                <ScalarProperty Name="Bill_No" ColumnName="Bill_No" />
+                <ScalarProperty Name="Bill_Date" ColumnName="Bill_Date" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="RoomNo" ColumnName="RoomNo" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
+                <ScalarProperty Name="Model_SlNo" ColumnName="Model&amp;SlNo" />
+                <ScalarProperty Name="File_No" ColumnName="File_No" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuppllierPs">
+            <EntityTypeMapping TypeName="MasterModel.SuppllierP">
+              <MappingFragment StoreEntitySet="SuppllierP">
+                <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+                <ScalarProperty Name="Supplier_Name" ColumnName="Supplier_Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="History_Master">
+            <EntityTypeMapping TypeName="MasterModel.History_Master">
+              <MappingFragment StoreEntitySet="History_Master">
+                <ScalarProperty Name="h_id" ColumnName="h_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssetTransactions">
+            <EntityTypeMapping TypeName="MasterModel.AssetTransaction">
+              <MappingFragment StoreEntitySet="AssetTransaction">
+                <ScalarProperty Name="Date_Modified" ColumnName="Date_Modified" />
+                <ScalarProperty Name="Roomno" ColumnName="Roomno" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Item_Id" ColumnName="Item_Id" />
+                <ScalarProperty Name="D_ID" ColumnName="D_ID" />
+                <ScalarProperty Name="TransacId" ColumnName="TransacId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserMasters">
+            <EntityTypeMapping TypeName="MasterModel.UserMaster">
+              <MappingFragment StoreEntitySet="UserMaster">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RoomNo" ColumnName="RoomNo" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="MasterModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

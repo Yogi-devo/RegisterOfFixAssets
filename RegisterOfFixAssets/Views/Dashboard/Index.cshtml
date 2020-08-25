@@ -1,0 +1,143 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<style type="text/css">
+    div.panel {
+        border: 1px solid #7b7a7a21;
+        box-shadow: inset 1px 0px 4px 0px;
+        cursor: pointer;
+        
+    }
+    h4{
+        font-weight:600;
+    }
+   
+</style>
+<div class="row" style="padding:20px">
+    <div class="col-md-4" style="max-height:120px;min-height:120px;">
+        <div class="panel panel-primary" style="max-height:120px;min-height:120px">
+            <div class="panel-body">
+                <div class="row" style="margin-top:5px">
+                    <div class="col-md-8">
+                        <h4>
+                            Recognizable Items
+                            <br />
+                            <h5>As On @DateTime.Now.ToShortDateString()</h5>
+                        </h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h1 style="font-size:70px;margin-top:0px">@ViewBag.totalrecognizable</h1>
+                    </div>
+                </div>
+              
+                
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4" style="max-height:120px;min-height:120px;">
+
+        <div class="panel panel-primary" style="max-height:120px;min-height:120px">
+            <div class="panel-body">
+                <div class="row" style="margin-top:5px">
+                    <div class="col-md-8">
+                        <h4>
+                           Non Recognizable Items
+                            <br />
+                            <h5>As On @DateTime.Now.ToShortDateString()</h5>
+                        </h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h1 style="font-size:70px;margin-top:0px">@ViewBag.totalnonrecognizable</h1>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4" style="max-height:120px;min-height:120px;">
+        <div class="panel panel-primary" style="max-height:120px;min-height:120px">
+            <div class="panel-body">
+                <div class="row" style="margin-top:5px">
+                    <div class="col-md-8">
+                        <h4>
+                            Total Disposed Items
+                            <br />
+                            <h5>As On @DateTime.Now.ToShortDateString()</h5>
+                        </h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h1 style="font-size:70px;margin-top:0px">@ViewBag.disposeditem</h1>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="padding:20px">
+    <div class="col-md-4" style="max-height:120px;min-height:120px;">
+        <div class="panel panel-primary" style="max-height:120px;min-height:120px">
+            <div class="panel-body">
+                <div class="row" style="margin-top:5px">
+                    <div class="col-md-8">
+                        <h4>
+                            Total Entries
+                            <br />
+                            <h5>As On @DateTime.Now.ToShortDateString()</h5>
+                        </h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h1 style="font-size:70px;margin-top:0px">@ViewBag.totalEntry</h1>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4" style="max-height:120px;min-height:120px;">
+
+        <div class="panel panel-primary" style="max-height:120px;min-height:120px">
+            <div class="panel-body">
+                <div class="row" style="margin-top:5px">
+                    <div class="col-md-8">
+                        <h4>
+                            Total Items
+                            <br />
+                            <h5>As On @DateTime.Now.ToShortDateString()</h5>
+                        </h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h1 style="font-size:70px;margin-top:0px">@ViewBag.activeitem</h1>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4" style="max-height:120px;min-height:120px;">
+        <div class="panel panel-primary" style="max-height:120px;min-height:120px">
+            <div class="panel-body">
+                <div class="row" style="margin-top:5px">
+                    <div class="col-md-8">
+                        <h4>
+                            Total Suppliers
+                            <br />
+                            <h5>As On @DateTime.Now.ToShortDateString()</h5>
+                        </h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h1 style="font-size:70px;margin-top:0px">@ViewBag.tatalSupplier</h1>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<RegisterOfFixAssets.Models.Detail_Master>
+   
+@{
+    Layout = null;
+    ViewBag.Title = "RecordDetail";
+}
+
+
+@foreach(var item in Model.GroupBy(x => x.item_ID))
+{
+<h4><u> Details Regarding: @item.First().AssetsP.item_name</u></h4>
+}
+<table class="table table-striped table-bordered" id="itemrecords">
+    <thead>
+        <tr>
+            <th>
+                Username
+            </th>
+
+            <th>
+                Room No
+            </th>
+            <th>
+                Serial No
+           </th>
+            
+            <th>
+                Bill Date
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @item.User_Name
+            </td>
+
+            <td>
+                @item.RoomNo
+            </td>
+            @if (item.Category == "1")
+    {
+        <td>
+            @item.Model_SlNo
+        </td>
+
+}
+else
+{
+        <td>
+           NA
+        </td>
+}
+            <td>
+                @item.Bill_Date
+            </td>
+
+
+
+        </tr>
+        }
+    </tbody>
+</table>

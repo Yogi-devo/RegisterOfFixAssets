@@ -1,0 +1,65 @@
+﻿@model RegisterOfFixAssets.Models.Detail_Master
+
+@{
+    Layout = null;
+    ViewBag.Title = "Dispose";
+}
+
+@using (Html.BeginForm("DisposeAsset", "Transfer", FormMethod.Post))
+{
+
+
+    @Html.HiddenFor(model => model.D_ID)
+    @Html.HiddenFor(model => model.item_ID)
+    @Html.HiddenFor(model => model.Supplier_ID)
+    @Html.HiddenFor(model => model.item_ID)
+    @Html.HiddenFor(model => model.Item_Name)
+    @Html.HiddenFor(model => model.Bill_No)
+    @Html.HiddenFor(model => model.Bill_Date)
+    @Html.HiddenFor(model => model.File_No)
+    @Html.HiddenFor(model => model.Remarks)
+    @Html.HiddenFor(model => model.Status)
+    @Html.HiddenFor(model => model.Category)
+    @Html.HiddenFor(model => model.Cost)
+    @Html.HiddenFor(model => model.Model_SlNo)
+
+    @Html.HiddenFor(model => model.RoomNo)
+    @Html.HiddenFor(model => model.User_Name)
+
+    <div>
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <h4>
+                    Are you sure you want to Dispose <b>@Model.AssetsP.item_name</b> from <b>Room No  @Model.RoomNo</b> with user <b>@Model.User_Name ? </b>
+                </h4>
+
+            </div>
+        </div>
+
+
+        @*<div class="row" style="margin-top:10px">
+                <div class="col-md-3" style="margin-top:8px;margin-bottom:0px">
+                    @Html.DisplayName("Room No")
+                </div>
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.RoomNo, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>*@
+        <div class="row" style="margin-top:10px">
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-8">
+                <input type="submit" value="Dispose Records" class="btn btn-primary" />
+            </div>
+
+
+        </div>
+
+    </div>
+
+}
+
+

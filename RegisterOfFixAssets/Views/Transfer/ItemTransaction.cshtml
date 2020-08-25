@@ -1,0 +1,78 @@
+﻿@model IEnumerable<RegisterOfFixAssets.Models.AssetTransaction>
+
+@{
+    Layout = null;
+    ViewBag.Title = "ItemTransaction";
+}
+
+
+<table class="table table-striped table-bordered" id="print">
+
+    <tr>
+        <th>
+            @Html.DisplayName("User Name")
+        </th>
+        <th>
+            @Html.DisplayName("Room No")
+        </th>
+        <th>
+            @Html.DisplayName("Movement Date")
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.AssetsP.item_name)
+            </th>*@
+        @*<th>
+                @Html.DisplayName("Bill No")
+            </th>*@
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Roomno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Modified)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.AssetsP.item_name)
+                </td>*@
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Detail_Master.Bill_No)
+                </td>*@
+
+        </tr>
+    }
+
+</table>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css" />
+@section scripts{
+    @Scripts.Render("~/bundles/jquery")
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
+    @*<script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>*@
+    <script>
+      
+
+        $(document).ready(function () {
+            $('#print').DataTable({
+                dom: 'Bfrtip',
+                buttons: [{
+                    extend: 'print',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 6],
+                    }
+                }]
+
+            });
+        });
+    </script>
+}

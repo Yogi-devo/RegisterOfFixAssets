@@ -1,0 +1,130 @@
+﻿@model RegisterOfFixAssets.Models.Detail_Master
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Detail_Master</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.item_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.item_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bill_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bill_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bill_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bill_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model_SlNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model_SlNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.File_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.File_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remarks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.D_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

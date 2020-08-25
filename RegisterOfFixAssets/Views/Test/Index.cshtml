@@ -1,0 +1,11 @@
+﻿@model RegisterOfFixAssets.Models.dynamicrow
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("Index", "Test", FormMethod.Post))
+{
+    @Html.TextBoxFor(model=>model.count)
+    <input type="submit" value="submit" />
+}
