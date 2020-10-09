@@ -42,13 +42,14 @@ namespace RegisterOfFixAssets.Models
         public string Item_Name { get; set; }
         [Display(Name = "Model & Sl. No.")]
 
-        [Required]
+        //[Required]
         public string Model_SlNo { get; set; }
 
         [Display(Name = "File No.")]
         public string File_No { get; set; }
         public string Category { get; set; }
         public Nullable<int> Status { get; set; } = 1;
+        [Display(Name = "Purchase Mode")]
         public string Remarks { get; set; }
         
         [Display(Name = "Supplier Id")]

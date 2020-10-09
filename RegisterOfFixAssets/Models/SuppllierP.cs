@@ -23,7 +23,7 @@ namespace RegisterOfFixAssets.Models
         public int Supplier_ID { get; set; }
         public string Supplier_Name { get; set; }
         public string Address { get; set; }
-        public Nullable<int> status { get; set; }
+        public Nullable<int> status { get; set; } = 1;
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Detail_Master> Detail_Master { get; set; }

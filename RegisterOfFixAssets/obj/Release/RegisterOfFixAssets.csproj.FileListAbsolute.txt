@@ -70,7 +70,6 @@ F:\RegisterOfFixAssets\RegisterOfFixAssets\obj\Release\RegisterOfFixAssets.cspro
 F:\RegisterOfFixAssets\RegisterOfFixAssets\obj\Release\RegisterOfFixAssets.csproj.CopyComplete
 F:\RegisterOfFixAssets\RegisterOfFixAssets\obj\Release\RegisterOfFixAssets.dll
 F:\RegisterOfFixAssets\RegisterOfFixAssets\obj\Release\RegisterOfFixAssets.pdb
-F:\RegisterOfFixAssets\RegisterOfFixAssets\obj\Release\RegisterOfFixAssets.csprojResolveAssemblyReference.cache
 F:\ROFA\RegisterOfFixAssets\RegisterOfFixAssets\bin\ApplicationInsights.config
 F:\ROFA\RegisterOfFixAssets\RegisterOfFixAssets\bin\RegisterOfFixAssets.dll.config
 F:\ROFA\RegisterOfFixAssets\RegisterOfFixAssets\bin\RegisterOfFixAssets.dll
@@ -144,3 +143,4 @@ F:\ROFA\RegisterOfFixAssets\RegisterOfFixAssets\obj\Release\RegisterOfFixAssets.
 F:\ROFA\RegisterOfFixAssets\RegisterOfFixAssets\obj\Release\RegisterOfFixAssets.csproj.CopyComplete
 F:\ROFA\RegisterOfFixAssets\RegisterOfFixAssets\obj\Release\RegisterOfFixAssets.dll
 F:\ROFA\RegisterOfFixAssets\RegisterOfFixAssets\obj\Release\RegisterOfFixAssets.pdb
+F:\RegisterOfFixAssets\RegisterOfFixAssets\obj\Release\RegisterOfFixAssets.csprojAssemblyReference.cache

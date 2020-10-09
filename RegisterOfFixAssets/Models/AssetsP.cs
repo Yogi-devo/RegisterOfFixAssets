@@ -24,7 +24,7 @@ namespace RegisterOfFixAssets.Models
         public int item_ID { get; set; }
         public string item_name { get; set; }
         public Nullable<int> category { get; set; }
-        public Nullable<int> status { get; set; }
+        public Nullable<int> status { get; set; } = 1;
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Detail_Master> Detail_Master { get; set; }

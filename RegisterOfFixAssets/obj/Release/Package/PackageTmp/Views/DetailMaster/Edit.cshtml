@@ -113,7 +113,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.Label("Model Serial No", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.Label("Serial No", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-8">
                                 @Html.EditorFor(model => model.Model_SlNo, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Model_SlNo, "", new { @class = "text-danger" })
@@ -137,8 +137,16 @@
             </div>
         </div>*@
 
-                        <div class="form-group">
+                        @*<div class="form-group">
                             @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+
+                        <div class="form-group">
+                            @Html.Label("Purchase Mode", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-8">
                                 @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })

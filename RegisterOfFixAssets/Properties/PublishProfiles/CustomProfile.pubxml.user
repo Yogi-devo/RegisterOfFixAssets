@@ -22,46 +22,46 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/03/2020 15:22:09</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>01/04/2017 00:44:16</publishTime>
+      <publishTime>04/01/2017 00:44:16</publishTime>
     </File>
     <File Include="bin/EntityFramework.SqlServer.dll">
-      <publishTime>01/04/2017 00:44:16</publishTime>
+      <publishTime>04/01/2017 00:44:16</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>11/30/2016 16:07:42</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.DependencyCollector.dll">
-      <publishTime>12/07/2016 11:45:42</publishTime>
+      <publishTime>07/12/2016 11:45:42</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
-      <publishTime>12/07/2016 11:50:34</publishTime>
+      <publishTime>07/12/2016 11:50:34</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
-      <publishTime>12/06/2016 15:15:48</publishTime>
+      <publishTime>06/12/2016 15:15:48</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Web.dll">
-      <publishTime>12/07/2016 11:49:10</publishTime>
+      <publishTime>07/12/2016 11:49:10</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.WindowsServer.dll">
-      <publishTime>12/07/2016 11:50:34</publishTime>
+      <publishTime>07/12/2016 11:50:34</publishTime>
     </File>
     <File Include="bin/Microsoft.ApplicationInsights.dll">
-      <publishTime>12/06/2016 15:09:52</publishTime>
+      <publishTime>06/12/2016 15:09:52</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>10/16/2017 14:14:32</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>01/05/2012 11:08:46</publishTime>
+      <publishTime>05/01/2012 11:08:46</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>08/03/2014 20:33:56</publishTime>
+      <publishTime>03/08/2014 20:33:56</publishTime>
     </File>
     <File Include="bin/RegisterOfFixAssets.dll">
-      <publishTime>08/14/2020 11:49:48</publishTime>
+      <publishTime>10/09/2020 14:28:20</publishTime>
     </File>
     <File Include="bin/RegisterOfFixAssets.pdb">
-      <publishTime>08/14/2020 11:49:48</publishTime>
+      <publishTime>10/09/2020 14:28:20</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>06/27/2016 14:50:24</publishTime>
@@ -148,7 +148,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/28/2015 04:02:18</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>02/11/2014 15:26:04</publishTime>
+      <publishTime>11/02/2014 15:26:04</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
       <publishTime>01/28/2015 04:02:32</publishTime>
@@ -163,7 +163,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/28/2015 04:04:30</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
-      <publishTime>09/10/2013 17:28:38</publishTime>
+      <publishTime>10/09/2013 17:28:38</publishTime>
     </File>
     <File Include="Content/AdminTemplateCss/all.min.css">
       <publishTime>03/03/2020 13:00:45</publishTime>
@@ -409,19 +409,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/04/2020 12:06:23</publishTime>
     </File>
     <File Include="Views/DetailMaster/Create.cshtml">
-      <publishTime>03/20/2020 17:29:36</publishTime>
+      <publishTime>10/09/2020 14:09:38</publishTime>
     </File>
     <File Include="Views/DetailMaster/Delete.cshtml">
       <publishTime>02/03/2020 16:07:49</publishTime>
     </File>
     <File Include="Views/DetailMaster/Details.cshtml">
-      <publishTime>02/03/2020 16:07:49</publishTime>
+      <publishTime>09/10/2020 16:32:50</publishTime>
     </File>
     <File Include="Views/DetailMaster/Edit.cshtml">
-      <publishTime>03/09/2020 16:36:57</publishTime>
+      <publishTime>10/09/2020 13:57:32</publishTime>
     </File>
     <File Include="Views/DetailMaster/Index.cshtml">
-      <publishTime>03/09/2020 16:37:07</publishTime>
+      <publishTime>09/10/2020 16:40:09</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>02/03/2020 15:21:42</publishTime>
@@ -448,19 +448,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/04/2020 20:49:32</publishTime>
     </File>
     <File Include="Views/Modifier/Index.cshtml">
-      <publishTime>02/03/2020 15:23:57</publishTime>
+      <publishTime>03/02/2020 15:23:57</publishTime>
     </File>
     <File Include="Views/Modifier/Itemlist.cshtml">
-      <publishTime>02/03/2020 14:59:16</publishTime>
+      <publishTime>03/02/2020 14:59:16</publishTime>
     </File>
     <File Include="Views/Modifier/Test.cshtml">
       <publishTime>02/20/2020 09:32:08</publishTime>
     </File>
     <File Include="Views/Report/Index.cshtml">
-      <publishTime>02/03/2020 16:42:47</publishTime>
+      <publishTime>03/02/2020 16:42:47</publishTime>
     </File>
     <File Include="Views/Report/RecordDetail.cshtml">
-      <publishTime>02/03/2020 16:56:11</publishTime>
+      <publishTime>03/02/2020 16:56:11</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>02/03/2020 15:21:42</publishTime>
@@ -490,7 +490,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/09/2020 12:51:39</publishTime>
     </File>
     <File Include="Views/Transfer/DisposedList.cshtml">
-      <publishTime>03/09/2020 18:33:19</publishTime>
+      <publishTime>10/09/2020 16:51:18</publishTime>
     </File>
     <File Include="Views/Transfer/Index.cshtml">
       <publishTime>03/09/2020 12:13:32</publishTime>

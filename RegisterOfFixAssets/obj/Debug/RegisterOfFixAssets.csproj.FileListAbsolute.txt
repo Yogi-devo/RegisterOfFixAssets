@@ -143,4 +143,4 @@ F:\ROFA\RegisterOfFixAssets\RegisterOfFixAssets\obj\Debug\RegisterOfFixAssets.cs
 F:\ROFA\RegisterOfFixAssets\RegisterOfFixAssets\obj\Debug\RegisterOfFixAssets.csproj.CopyComplete
 F:\ROFA\RegisterOfFixAssets\RegisterOfFixAssets\obj\Debug\RegisterOfFixAssets.dll
 F:\ROFA\RegisterOfFixAssets\RegisterOfFixAssets\obj\Debug\RegisterOfFixAssets.pdb
-F:\RegisterOfFixAssets\RegisterOfFixAssets\obj\Debug\RegisterOfFixAssets.csprojResolveAssemblyReference.cache
+F:\RegisterOfFixAssets\RegisterOfFixAssets\obj\Debug\RegisterOfFixAssets.csprojAssemblyReference.cache
