@@ -6,12 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using RegisterOfFixAssets.Models;
 
 namespace RegisterOfFixAssets.Controllers
 {
     public class LoginController : Controller
     {
+
         private EntityConfig db = new EntityConfig();
 
         // GET: Login
@@ -41,22 +43,39 @@ namespace RegisterOfFixAssets.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Create(Login login)
+        {
+            bool IsValied = db.Logins.Any(x=>x.LoginId==login.LoginId && x.Password==login.Password);
+            if(IsValied)
+                {
+                return RedirectToAction("Index", "Dashboard");
+                }
+            ModelState.AddModelError("", "Invalied user and/or password");
+            return View();
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Create");
+        }
         // POST: Login/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LoginId,Password,Status")] Login login)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Logins.Add(login);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "LoginId,Password,Status")] Login login)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Logins.Add(login);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
 
-            return View(login);
-        }
+        //    return View(login);
+        //}
 
         // GET: Login/Edit/5
         public ActionResult Edit(string id)

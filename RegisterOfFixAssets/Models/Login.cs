@@ -11,10 +11,12 @@ namespace RegisterOfFixAssets.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Login
     {
         public string LoginId { get; set; }
+        [DataType(DataType.Password)]
         public string Password { get; set; }
         public Nullable<int> Status { get; set; }
     }
