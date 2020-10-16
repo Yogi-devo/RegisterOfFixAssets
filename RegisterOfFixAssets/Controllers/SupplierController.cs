@@ -10,6 +10,7 @@ using RegisterOfFixAssets.Models;
 
 namespace RegisterOfFixAssets.Controllers
 {
+ 
     public class SupplierController : Controller
     {
         private EntityConfig db = new EntityConfig();

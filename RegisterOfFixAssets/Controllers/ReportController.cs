@@ -7,6 +7,7 @@ using RegisterOfFixAssets.Models;
 
 namespace RegisterOfFixAssets.Controllers
 {
+  
     public class ReportController : Controller
     {
         private EntityConfig db = new EntityConfig();

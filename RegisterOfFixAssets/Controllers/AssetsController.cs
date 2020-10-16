@@ -10,7 +10,7 @@ using RegisterOfFixAssets.Models;
 
 namespace RegisterOfFixAssets.Controllers
 {
-    
+
     public class AssetsController : Controller
     {
         private EntityConfig db = new EntityConfig();

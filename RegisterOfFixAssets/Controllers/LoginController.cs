@@ -11,6 +11,7 @@ using RegisterOfFixAssets.Models;
 
 namespace RegisterOfFixAssets.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
 
@@ -49,6 +50,7 @@ namespace RegisterOfFixAssets.Controllers
             bool IsValied = db.Logins.Any(x=>x.LoginId==login.LoginId && x.Password==login.Password);
             if(IsValied)
                 {
+                FormsAuthentication.SetAuthCookie(login.LoginId,false);
                 return RedirectToAction("Index", "Dashboard");
                 }
             ModelState.AddModelError("", "Invalied user and/or password");
