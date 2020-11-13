@@ -10,7 +10,7 @@ using RegisterOfFixAssets.Models;
 
 namespace RegisterOfFixAssets.Controllers
 {
-
+    [OutputCache(NoStore = true, Duration = 0, VaryByParam = "None")]
     public class DetailMasterController : Controller
     {
         private EntityConfig db = new EntityConfig();
@@ -18,7 +18,7 @@ namespace RegisterOfFixAssets.Controllers
         // GET: DetailMaster
         public ActionResult Index()
         {
-            return View(db.Detail_Master.Where(x=>x.Status==1).Include("AssetsP").Include("SuppllierP").ToList());
+            return View(db.Detail_Master.Where(x=>x.Status==1).Include("AssetsP").Include("SuppllierP").OrderBy(x =>x.D_ID).ToList());
         }
 
         // GET: DetailMaster/Details/5
@@ -123,12 +123,13 @@ namespace RegisterOfFixAssets.Controllers
                     doc.Remarks = dm.Remarks;
                     doc.Status = dm.Status;
                     doc.Supplier_ID = dm.Supplier_Id;
-
+                    doc.CreatedOn = DateTime.Now;
 
                     db.Detail_Master.Add(doc);
+
                     db.SaveChanges();
                 }
-
+                ViewBag.Message = "New record inserted successfully";
                 return RedirectToAction("Create", "DetailMaster");
          
         }

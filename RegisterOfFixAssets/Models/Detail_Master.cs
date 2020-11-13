@@ -27,6 +27,7 @@ namespace RegisterOfFixAssets.Models
         public Nullable<int> Supplier_ID { get; set; }
         public string Bill_No { get; set; }
         //[DisplayFormat(DataFormatString = "{dd MMM yyyy}")]
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> Bill_Date { get; set; }
         public string Cost { get; set; }
         public string RoomNo { get; set; }
@@ -39,6 +40,7 @@ namespace RegisterOfFixAssets.Models
         public string Remarks { get; set; }
         public string SupplierName { get; set; }
     
+        public DateTime CreatedOn { get; set; }
         public virtual AssetsP AssetsP { get; set; }
         public virtual SuppllierP SuppllierP { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

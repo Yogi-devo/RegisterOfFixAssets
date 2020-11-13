@@ -7,6 +7,7 @@ using RegisterOfFixAssets.Models;
 
 namespace RegisterOfFixAssets.Controllers
 {
+    [OutputCache(NoStore = true, Duration = 0, VaryByParam = "None")]
     public class DashboardController : Controller
     {
         EntityConfig db = new EntityConfig();

@@ -10,7 +10,7 @@ using RegisterOfFixAssets.Models;
 
 namespace RegisterOfFixAssets.Controllers
 {
-
+    [OutputCache(NoStore =true,Duration =0,VaryByParam ="None")]
     public class AssetsController : Controller
     {
         private EntityConfig db = new EntityConfig();

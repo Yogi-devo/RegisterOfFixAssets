@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace RegisterOfFixAssets.Controllers
 {
+    [OutputCache(NoStore = true, Duration = 0, VaryByParam = "None")]
     public class HomeController : Controller
     {
         public ActionResult Index()

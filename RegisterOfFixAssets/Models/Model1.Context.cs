@@ -33,5 +33,7 @@ namespace RegisterOfFixAssets.Models
         public virtual DbSet<AssetTransaction> AssetTransactions { get; set; }
         public virtual DbSet<UserMaster> UserMasters { get; set; }
         public virtual DbSet<Login> Logins { get; set; }
+
+        public virtual DbSet<ChangePassword> ChangePassword { get; set; }
     }
 }

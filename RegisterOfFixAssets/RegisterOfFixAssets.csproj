@@ -175,6 +175,7 @@
     <Compile Include="Models\CategoryMaster.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChangePassword.cs" />
     <Compile Include="Models\Detail_Master.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -395,6 +396,7 @@
     <Content Include="Views\Transfer\ItemTransaction.cshtml" />
     <Content Include="Views\ValidationTest\Index.cshtml" />
     <Content Include="Views\ValidationTest\Messsage.cshtml" />
+    <Content Include="Views\Login\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

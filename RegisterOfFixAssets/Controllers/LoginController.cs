@@ -16,6 +16,7 @@ namespace RegisterOfFixAssets.Controllers
     {
 
         private EntityConfig db = new EntityConfig();
+        private object WebSecurity;
 
         // GET: Login
         public ActionResult Index()
@@ -61,6 +62,31 @@ namespace RegisterOfFixAssets.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Create");
+        }
+
+
+        [HttpGet]
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost, Authorize, ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(ChangePassword changePassword)
+        {
+            //if(ModelState.IsValid)
+            //{
+            //   //bool IsPasswordChange= WebSecurity.ChangePassword(WebSecurity.CurrentUserName, changePassword.ConfirmNewPassword, changePassword.NewPassword);
+            //}
+            //if(IsPasswordChange)
+            //{
+            //    return RedirectToAction("Login", "Signid");
+            //}
+            //else
+            //{
+            //    ModelState.AddModelError("CurrentPassword", "Current password is not correct");
+            //}
+            return View();
         }
         // POST: Login/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

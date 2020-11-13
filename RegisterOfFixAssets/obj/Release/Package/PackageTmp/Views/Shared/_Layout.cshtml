@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -18,6 +19,7 @@
         .body-content {
             font-family: 'Nunito', sans-serif;
         }
+
         a {
             font-family: 'Nunito', sans-serif;
         }
@@ -37,22 +39,22 @@
     </style>
 
 </head>
-<body> 
+<body>
     <div>
         <img src="~/Content/header.jpg" />
-        
+
     </div>
-    
+
     @*<div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6">
-                <img src="~/Image/intranet banner.jpg" />
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="~/Image/intranet banner.jpg" />
+                </div>
+                <div class="col-md-6">
+                    <h2 style="font-size:58px">Register Of Fix Assets</h2>
+                </div>
             </div>
-            <div class="col-md-6">
-                <h2 style="font-size:58px">Register Of Fix Assets</h2>
-            </div>
-        </div>
-    </div>*@
+        </div>*@
     <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -61,7 +63,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Asset Management ", "Index", "Dashboard", new { area = "" }, new { @class = "navbar-brand", style="color:white" })
+                @Html.ActionLink("Asset Management ", "Index", "Dashboard", new { area = "" }, new { @class = "navbar-brand", style = "color:white" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -73,24 +75,26 @@
                     <li>@Html.ActionLink("Transfer/Dispose", "Index", "Modifier", routeValues: null, htmlAttributes: new { style = "color:white" })</li>
                     <li>@Html.ActionLink("Report", "Index", "Report", routeValues: null, htmlAttributes: new { style = "color:white" })</li>
                     <li>@Html.ActionLink("Disposed Record", "DisposedList", "Transfer", routeValues: null, htmlAttributes: new { style = "color:white" })</li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Login", routeValues: null, htmlAttributes: new { style = "color:white" })</li>
+                    <li>@Html.ActionLink("Change Password", "ChangePassword", "Login", routeValues: null, htmlAttributes: new { style = "color:white" })</li>
 
                     @*<li>@Html.ActionLink("Search", "Index", "MasterSearch", routeValues: null, htmlAttributes: new { style = "color:white" })</li>*@
 
                 </ul>
+                </div>
             </div>
+        </nav>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Developed by DHI Informatics Division</p>
+            </footer>
         </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Developed by DHI Informatics Division</p>
-        </footer>
-    </div>
-    @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jquery")
 
-    @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/bootstrap")
 
-    @RenderSection("scripts", required: false)
-</body>
+        @RenderSection("scripts", required: false)
+    </body>
 </html>
